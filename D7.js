@@ -227,8 +227,11 @@ function oldFilm(filmList) {
   let oldFilm = filmList[0]; //old film parte da indice 0 , quindi dal primo
 
   filmList.forEach((film) => {
-    parseInt(oldFilm.Year);
-    parseInt(film.Year);
+    const oldestYear = parseInt(oldFilm.Year);
+    const currentYear = parseInt(film.Year);
+    if (currentYear < oldestYear) {
+      oldFilm = film;
+    }
   });
   return oldFilm;
 }
